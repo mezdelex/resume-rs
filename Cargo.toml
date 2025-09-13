@@ -7,12 +7,15 @@ authors = ["mezdelex <alexcondegomez@gmail.com>"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+chrono = "0.4.42"
+console_error_panic_hook = "0.1"
+console_log = "1"
+icondata = "0.6.0"
 leptos = { version = "0.8", features = ["csr", "nightly"] }
+leptos_icons = "0.7.0"
 leptos_meta = { version = "0.8" }
 leptos_router = { version = "0.8", features = ["nightly"] }
-console_log = "1"
 log = "0.4"
-console_error_panic_hook = "0.1"
 thaw = { version = "0.5.0-beta", features = ["csr", "nightly"] }
 
 [dev-dependencies]

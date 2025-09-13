@@ -1,12 +1,11 @@
+mod components;
+mod models;
+mod pages;
+use crate::pages::{home::Home, not_found::NotFound};
 use leptos::prelude::*;
 use leptos_meta::*;
 use leptos_router::{components::*, path};
 use thaw::*;
-
-mod components;
-mod pages;
-
-use crate::pages::{home::Home, not_found::NotFound};
 
 #[component]
 pub fn App() -> impl IntoView {
