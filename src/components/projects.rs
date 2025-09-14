@@ -30,7 +30,9 @@ pub fn Projects() -> impl IntoView {
                                         <img src=project.image />
                                     </CardPreview>
                                     <CardHeader class="card-header">
-                                        <Text style="margin-inline: auto">{project.name}</Text>
+                                        <Text style="margin-inline: auto">
+                                            {project.name}- {project.pushed_at}
+                                        </Text>
                                         <CardHeaderDescription slot>
                                             {project.description}
                                         </CardHeaderDescription>

@@ -36,6 +36,11 @@ button {
   margin: var(--size-6);
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .card {
   height: 70vh;
 }
@@ -58,11 +63,12 @@ button {
   min-height: 100vh;
 }
 
-.buttons {
-  display: flex;
-  justify-content: space-evenly;
-}
-
 .link {
   font-size: 1.5rem;
+}
+
+.selfie {
+  border-radius: 1rem;
+  max-height: 20rem;
+  max-width: 10rem;
 }

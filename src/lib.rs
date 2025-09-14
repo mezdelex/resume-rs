@@ -3,9 +3,10 @@ mod contexts;
 mod data;
 mod models;
 mod pages;
+mod services;
 use crate::{
-    contexts::project_context::ProjectContext,
-    pages::{home::Home, not_found::NotFound},
+    contexts::{project_context::ProjectContext, repository_context::RepositoryContext},
+    pages::{not_found::NotFound, projects_view::ProjectsView, timeline_view::TimelineView},
 };
 use leptos::prelude::*;
 use leptos_meta::*;
@@ -18,6 +19,7 @@ pub fn App() -> impl IntoView {
     let projects = RwSignal::new(data::projects_data::PROJECTS.to_vec());
 
     provide_context(ProjectContext { projects });
+    provide_context(RepositoryContext::default());
     provide_meta_context();
 
     view! {
@@ -26,7 +28,8 @@ pub fn App() -> impl IntoView {
         <ConfigProvider theme>
             <Router>
                 <Routes fallback=NotFound>
-                    <Route path=path!("/") view=Home />
+                    <Route path=path!("/") view=ProjectsView />
+                    <Route path=path!("/timeline") view=TimelineView />
                 </Routes>
             </Router>
         </ConfigProvider>

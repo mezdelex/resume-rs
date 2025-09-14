@@ -2,7 +2,7 @@ use crate::components::{footer::Footer, header::Header, projects::Projects};
 use leptos::prelude::*;
 
 #[component]
-pub fn Home() -> impl IntoView {
+pub fn ProjectsView() -> impl IntoView {
     view! {
         <ErrorBoundary fallback=|errors| {
             view! {
