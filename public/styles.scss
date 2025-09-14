@@ -54,6 +54,17 @@ button {
   overflow: hidden;
 }
 
+.card-footer A {
+  background-color: buttonface;
+  border-radius: 3px;
+  border: 1px outset buttonborder;
+  color: buttontext;
+  display: inline-block;
+  margin-inline: auto;
+  padding: 1px 6px;
+  text-decoration: none;
+}
+
 .container {
   align-items: center;
   display: flex;

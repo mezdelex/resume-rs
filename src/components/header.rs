@@ -4,7 +4,8 @@ use crate::{
 };
 use leptos::{
     prelude::{
-        component, use_context, view, ClassAttribute, Effect, IntoView, RwSignal, Set, With,
+        component, use_context, view, ClassAttribute, Effect, IntoView, RwSignal,
+        Set, With,
     },
     reactive::spawn_local,
 };

@@ -5,3 +5,10 @@ use leptos::prelude::RwSignal;
 pub struct ProjectContext {
     pub projects: RwSignal<Vec<Project>>,
 }
+impl Default for ProjectContext {
+    fn default() -> Self {
+        Self {
+            projects: RwSignal::new(Vec::<Project>::new()),
+        }
+    }
+}

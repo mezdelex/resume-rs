@@ -16,9 +16,8 @@ use thaw::*;
 #[component]
 pub fn App() -> impl IntoView {
     let theme = RwSignal::new(Theme::dark());
-    let projects = RwSignal::new(data::projects_data::PROJECTS.to_vec());
 
-    provide_context(ProjectContext { projects });
+    provide_context(ProjectContext::default());
     provide_context(RepositoryContext::default());
     provide_meta_context();
 
