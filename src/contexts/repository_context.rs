@@ -15,13 +15,13 @@ pub struct RepositoryContext {
 impl Default for RepositoryContext {
     fn default() -> Self {
         Self {
-            repos: RwSignal::new(Vec::<Repository>::new()),
-            date: RwSignal::new(String::new()),
-            message: RwSignal::new(String::new()),
-            repo: RwSignal::new(String::new()),
-            sha: RwSignal::new(String::new()),
-            link: RwSignal::new(String::new()),
-            finished: RwSignal::new(false),
+            repos: RwSignal::default(),
+            date: RwSignal::default(),
+            message: RwSignal::default(),
+            repo: RwSignal::default(),
+            sha: RwSignal::default(),
+            link: RwSignal::default(),
+            finished: RwSignal::default(),
         }
     }
 }

@@ -1,4 +1,4 @@
-use icondata;
+use icondata::{FaLaptopCodeSolid, MdiChartTimeline};
 use leptos::prelude::{component, view, IntoView, RwSignal};
 use leptos_icons::Icon;
 use leptos_router::components::A;
@@ -11,11 +11,11 @@ pub fn Sidebar(#[prop(default = RwSignal::new(false))] open: RwSignal<bool>) -> 
             <DrawerBody>
                 <Flex vertical=true>
                     <Flex class="link" align=FlexAlign::Start justify=FlexJustify::Start>
-                        <Icon icon=icondata::FaLaptopCodeSolid style="color: orange" />
+                        <Icon icon=FaLaptopCodeSolid style="color: orange" />
                         <A href="/">Projects</A>
                     </Flex>
                     <Flex class="link" align=FlexAlign::Start justify=FlexJustify::Start>
-                        <Icon icon=icondata::MdiChartTimeline style="color: orange" />
+                        <Icon icon=MdiChartTimeline style="color: orange" />
                         <A href="/timeline">Timeline</A>
                     </Flex>
                 </Flex>

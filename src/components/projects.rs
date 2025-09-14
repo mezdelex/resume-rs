@@ -1,6 +1,6 @@
 use crate::{
     contexts::{project_context::ProjectContext, repository_context::RepositoryContext},
-    services::projects_service::{self},
+    services::projects_service::ProjectsService,
 };
 use chrono::{DateTime, Duration, Local, Utc};
 use leptos::prelude::{component, use_context, view, Effect, For, IntoView, With};
@@ -10,8 +10,8 @@ use thaw::{
     FlexJustify, Text,
 };
 
-pub fn get_last_update(pushed_at_str: String) -> String {
-    let parsed: DateTime<Utc> = match pushed_at_str.parse() {
+pub fn get_last_update(pushed_at: String) -> String {
+    let parsed: DateTime<Utc> = match pushed_at.parse() {
         Ok(dt) => dt,
         Err(_) => return "Invalid date".to_string(),
     };
@@ -39,7 +39,7 @@ pub fn Projects() -> impl IntoView {
 
     Effect::new(move |_| {
         if repos.with(|r| !r.is_empty()) {
-            projects_service::ProjectsService::sort_projects(projects, repos);
+            ProjectsService::sort_projects(projects, repos);
         }
     });
 

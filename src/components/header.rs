@@ -1,11 +1,10 @@
 use crate::{
     components::sidebar::Sidebar, contexts::repository_context::RepositoryContext,
-    services::github_service,
+    services::github_service::GithubService,
 };
 use leptos::{
     prelude::{
-        component, use_context, view, ClassAttribute, Effect, IntoView, RwSignal,
-        Set, With,
+        component, use_context, view, ClassAttribute, Effect, IntoView, RwSignal, Set, With,
     },
     reactive::spawn_local,
 };
@@ -21,13 +20,10 @@ pub fn Header() -> impl IntoView {
     Effect::new(move |_| {
         if repository_context.link.with(|s| s.is_empty()) {
             spawn_local(async move {
-                github_service::GithubService::get_repos(repository_context.repos).await;
-                github_service::GithubService::get_updated_repo(
-                    repository_context.repos,
-                    repository_context.repo,
-                )
-                .await;
-                github_service::GithubService::get_last_commit(
+                GithubService::get_repos(repository_context.repos).await;
+                GithubService::get_updated_repo(repository_context.repos, repository_context.repo)
+                    .await;
+                GithubService::get_last_commit(
                     repository_context.repo,
                     repository_context.date,
                     repository_context.message,

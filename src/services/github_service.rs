@@ -1,12 +1,13 @@
 use crate::models::{commit::Commit, repository::Repository};
 use leptos::prelude::{GetUntracked, RwSignal, Set};
+use reqwest::get;
 use web_sys::console::error_1;
 
 pub struct GithubService;
 
 impl GithubService {
     pub async fn get_repos(repos: RwSignal<Vec<Repository>>) {
-        match reqwest::get("https://api.github.com/users/mezdelex/repos?per_page=100").await {
+        match get("https://api.github.com/users/mezdelex/repos?per_page=100").await {
             Ok(response) => {
                 if response.status().is_success() {
                     match response.json::<Vec<Repository>>().await {
@@ -50,7 +51,7 @@ impl GithubService {
             return;
         }
 
-        match reqwest::get(format!(
+        match get(format!(
             "https://api.github.com/repos/mezdelex/{}/commits",
             updated_repo
         ))

@@ -1,5 +1,5 @@
 use crate::{
-    data,
+    data::projects_data::PROJECTS,
     models::{project::Project, repository::Repository},
 };
 use leptos::prelude::{GetUntracked, RwSignal, Set};
@@ -9,10 +9,10 @@ pub struct ProjectsService;
 impl ProjectsService {
     pub fn sort_projects(projects: RwSignal<Vec<Project>>, repos: RwSignal<Vec<Repository>>) {
         let current_repos = repos.get_untracked();
-        let projects_data = data::projects_data::PROJECTS.to_vec();
+        let projects_data = PROJECTS.to_vec();
 
         if !current_repos.is_empty() {
-            let updated_projects: Vec<Project> = projects_data
+            let mut updated_projects: Vec<Project> = projects_data
                 .into_iter()
                 .map(|mut p| {
                     if !p.id.is_empty() {
@@ -23,11 +23,9 @@ impl ProjectsService {
                     p
                 })
                 .collect();
+            updated_projects.sort_by(|a, b| b.pushed_at.cmp(&a.pushed_at));
 
-            let mut sorted_projects = updated_projects;
-            sorted_projects.sort_by(|a, b| b.pushed_at.cmp(&a.pushed_at));
-
-            projects.set(sorted_projects);
+            projects.set(updated_projects);
         } else {
             projects.set(projects_data);
         }

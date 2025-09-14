@@ -8,7 +8,7 @@ pub struct ProjectContext {
 impl Default for ProjectContext {
     fn default() -> Self {
         Self {
-            projects: RwSignal::new(Vec::<Project>::new()),
+            projects: RwSignal::default(),
         }
     }
 }
