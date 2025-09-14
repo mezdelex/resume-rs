@@ -1758,6 +1758,7 @@ dependencies = [
  "leptos_meta",
  "leptos_router",
  "log",
+ "once_cell",
  "thaw",
  "wasm-bindgen",
  "wasm-bindgen-test",
