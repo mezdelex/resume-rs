@@ -3,11 +3,12 @@ use crate::{
     services::projects_service::ProjectsService,
 };
 use chrono::{DateTime, Duration, Local, Utc};
+use icondata::{AiGithubFilled, AiLinkOutlined, MdiUpdate};
 use leptos::prelude::{component, use_context, view, Effect, For, IntoView, With};
+use leptos_icons::Icon;
 use leptos_router::components::A;
 use thaw::{
-    Card, CardFooter, CardHeader, CardHeaderDescription, CardPreview, Flex, FlexAlign, FlexGap,
-    FlexJustify, Text,
+    Card, CardFooter, CardHeader, CardPreview, Flex, FlexAlign, FlexGap, FlexJustify, Text,
 };
 
 pub fn get_last_update(pushed_at: String) -> String {
@@ -33,53 +34,66 @@ pub fn Projects() -> impl IntoView {
     let projects = use_context::<ProjectContext>()
         .expect("Missing ProjectContext.")
         .projects;
-    let repos = use_context::<RepositoryContext>()
-        .expect("Missing RepositoryContext.")
-        .repos;
+    let repository_context =
+        use_context::<RepositoryContext>().expect("Missing RepositoryContext.");
 
     Effect::new(move |_| {
-        if repos.with(|r| !r.is_empty()) {
-            ProjectsService::sort_projects(projects, repos);
+        if repository_context.finished.with(|&v| v) {
+            ProjectsService::sort_projects(projects, repository_context.repos);
         }
     });
 
     view! {
         <Flex
             align=FlexAlign::FlexStart
+            class="projects-container"
+            gap=FlexGap::Size(40)
             justify=FlexJustify::SpaceAround
-            gap=FlexGap::Large
-            style="width: 80vw;flex-wrap: wrap"
         >
             <For
                 each=projects
                 key=|project| project.id.clone()
                 children=move |project| {
                     view! {
-                        <Flex style="width: 30rem">
-                            <Card class="card">
-                                <Flex vertical=true justify=FlexJustify::SpaceAround>
+                        <Card>
+                            <Flex
+                                class="card-container"
+                                justify=FlexJustify::SpaceBetween
+                                vertical=true
+                            >
+                                <Flex vertical=true>
+                                    <CardHeader>
+                                        <Flex class="last-update" gap=FlexGap::Size(2)>
+                                            Last update
+                                            <Icon icon=MdiUpdate />
+                                            :
+                                            {get_last_update(project.pushed_at)}
+                                        </Flex>
+                                    </CardHeader>
                                     <CardPreview class="card-preview">
                                         <img src=project.image />
                                     </CardPreview>
-                                    <CardHeader class="card-header">
-                                        <Text style="margin-inline: auto">
-                                            {project.name}-{get_last_update(project.pushed_at)}
-                                        </Text>
-                                        <CardHeaderDescription slot>
-                                            {project.description}
-                                        </CardHeaderDescription>
-                                    </CardHeader>
-                                    <CardFooter class="card-footer">
+                                </Flex>
+                                <Text class="project-name">{project.name}</Text>
+                                <Text class="project-description">{project.description}</Text>
+                                <CardFooter>
+                                    <Flex class="card-footer" justify=FlexJustify::SpaceAround>
                                         <A href=project.repo target="_">
-                                            Repo
+                                            <Flex class="link hover-effect">
+                                                <Icon icon=AiGithubFilled />
+                                                Repo
+                                            </Flex>
                                         </A>
                                         <A href=project.app target="_">
-                                            App
+                                            <Flex class="link hover-effect">
+                                                <Icon icon=AiLinkOutlined />
+                                                App
+                                            </Flex>
                                         </A>
-                                    </CardFooter>
-                                </Flex>
-                            </Card>
-                        </Flex>
+                                    </Flex>
+                                </CardFooter>
+                            </Flex>
+                        </Card>
                     }
                 }
             />

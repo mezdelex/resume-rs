@@ -2,6 +2,7 @@ use crate::{
     components::sidebar::Sidebar, contexts::repository_context::RepositoryContext,
     services::github_service::GithubService,
 };
+use icondata::FaBarsSolid;
 use leptos::{
     prelude::{
         component, use_context, view, ClassAttribute, Effect, IntoView, RwSignal, Set, With,
@@ -9,7 +10,7 @@ use leptos::{
     reactive::spawn_local,
 };
 use leptos_router::components::A;
-use thaw::{Button, Flex, FlexAlign, Text};
+use thaw::{Button, Flex, FlexAlign, FlexJustify, Text};
 
 #[component]
 pub fn Header() -> impl IntoView {
@@ -37,6 +38,9 @@ pub fn Header() -> impl IntoView {
     });
 
     view! {
+        <Flex justify=FlexJustify::FlexEnd style="width: 90vw">
+            <Button icon=FaBarsSolid on_click=move |_| { open.set(true) } />
+        </Flex>
         <Flex
             vertical=true
             align=FlexAlign::Center
@@ -55,7 +59,6 @@ pub fn Header() -> impl IntoView {
             <Text style="max-width: 20rem;text-align: center">
                 Message: {repository_context.message}
             </Text>
-            <Button on_click=move |_| { open.set(true) } />
             <Sidebar open />
         </Flex>
     }

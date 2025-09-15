@@ -9,6 +9,16 @@
 
 /* ------------------------------------------------------------ */
 
+a {
+  color: orange;
+  text-decoration: none;
+}
+
+a:hover,
+.link:hover {
+  color: darkorange;
+}
+
 body {
   font-family: sans-serif;
   text-align: center;
@@ -41,32 +51,14 @@ button {
   justify-content: space-evenly;
 }
 
-.card {
-  height: 70vh;
-}
-
-.card-header {
-  min-height: 15rem;
-}
-
 .card-preview {
   height: 15rem;
   overflow: hidden;
 }
 
-.card-footer A {
-  background-color: buttonface;
-  border-radius: 3px;
-  border: 1px outset buttonborder;
-  color: buttontext;
-  display: inline-block;
-  margin-inline: auto;
-  padding: 1px 6px;
-  text-decoration: none;
-}
-
 .container {
   align-items: center;
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -74,12 +66,77 @@ button {
   min-height: 100vh;
 }
 
+.card-container {
+  height: 65vh;
+}
+
+.card-footer {
+  width: 100%;
+}
+
+.hover-effect {
+  transform: scale3d(1, 1, 1);
+  transition: transform 0.2s ease;
+}
+
+.hover-effect:hover {
+  transform: scale3d(1.1, 1.1, 1.1);
+}
+
+.last-update {
+  color: lightsteelblue;
+  font-size: 0.65rem;
+}
+
 .link {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  color: orange;
+}
+
+.project-name {
+  background-color: dimgray;
+  color: orange;
+  font-size: 1rem;
+  height: 2rem;
+  padding-top: 0.3rem;
+  text-align: center;
+  width: 100%;
+}
+
+.project-description {
+  color: lightgray;
+  font-size: 1rem;
+  height: 10rem;
+  text-align: center;
+  width: 100%;
+}
+
+.projects-container {
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  width: 80vw;
 }
 
 .selfie {
   border-radius: 1rem;
   max-height: 20rem;
   max-width: 10rem;
+}
+
+.thaw-card {
+  height: 70vh;
+  width: 30rem;
+}
+
+.thaw-drawer-body {
+  background-color: black;
+}
+
+.thaw-button--icon {
+  color: orange;
+}
+
+.thaw-label {
+  color: orange;
 }

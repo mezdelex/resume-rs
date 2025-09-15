@@ -10,14 +10,18 @@ pub fn Sidebar(#[prop(default = RwSignal::new(false))] open: RwSignal<bool>) -> 
         <OverlayDrawer open position=DrawerPosition::Right>
             <DrawerBody>
                 <Flex vertical=true>
-                    <Flex class="link" align=FlexAlign::Start justify=FlexJustify::Start>
-                        <Icon icon=FaLaptopCodeSolid style="color: orange" />
-                        <A href="/">Projects</A>
-                    </Flex>
-                    <Flex class="link" align=FlexAlign::Start justify=FlexJustify::Start>
-                        <Icon icon=MdiChartTimeline style="color: orange" />
-                        <A href="/timeline">Timeline</A>
-                    </Flex>
+                    <A href="/">
+                        <Flex class="link" align=FlexAlign::Center justify=FlexJustify::Start>
+                            <Icon icon=FaLaptopCodeSolid />
+                            Projects
+                        </Flex>
+                    </A>
+                    <A href="/timeline">
+                        <Flex class="link" align=FlexAlign::Center justify=FlexJustify::Start>
+                            <Icon icon=MdiChartTimeline />
+                            Timeline
+                        </Flex>
+                    </A>
                 </Flex>
             </DrawerBody>
         </OverlayDrawer>
