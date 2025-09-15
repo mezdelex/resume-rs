@@ -38,26 +38,23 @@ pub fn Header() -> impl IntoView {
     });
 
     view! {
-        <Flex justify=FlexJustify::FlexEnd style="width: 90vw">
+        <Flex class="inner-container" justify=FlexJustify::FlexEnd>
             <Button icon=FaBarsSolid on_click=move |_| { open.set(true) } />
         </Flex>
-        <Flex
-            vertical=true
-            align=FlexAlign::Center
-            gap=thaw::FlexGap::Medium
-            style="margin-top: 2rem"
-        >
+        <Flex vertical=true align=FlexAlign::Center gap=thaw::FlexGap::Medium>
             <img class="selfie" src="./images/alejandro.png" />
             <Flex>
-                <Text>Last activity: {repository_context.date}</Text>
-                <Text>
+                <Text class="header-text">
+                    Last activity: <Text>{repository_context.date}</Text>
+                </Text>
+                <Text class="header-text">
                     Commit: <A href=repository_context.link target="_">
                         Link
                     </A>
                 </Text>
             </Flex>
-            <Text style="max-width: 20rem;text-align: center">
-                Message: {repository_context.message}
+            <Text class="commit-message header-text">
+                Message: <Text>{repository_context.message}</Text>
             </Text>
             <Sidebar open />
         </Flex>

@@ -8,15 +8,22 @@
 @import "https://unpkg.com/open-props/buttons.min.css";
 
 /* ------------------------------------------------------------ */
+:root {
+  --primary-text: orange;
+  --secondary-text: darkorange;
+  --tertiary-text: cadetblue;
+  --quaternary-text: dimgray;
+  --quinary-text: black;
+}
 
 a {
-  color: orange;
+  color: var(--primary-text);
   text-decoration: none;
 }
 
 a:hover,
 .link:hover {
-  color: darkorange;
+  color: var(--secondary-text);
 }
 
 body {
@@ -58,7 +65,7 @@ button {
 
 .container {
   align-items: center;
-  background-color: black;
+  background-color: var(--quinary-text);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -74,6 +81,24 @@ button {
   width: 100%;
 }
 
+.commit-message {
+  max-width: 20rem;
+  text-align: center;
+}
+
+.footer {
+  margin-bottom: 2rem;
+  color: var(--tertiary-text);
+}
+
+.header-text {
+  color: var(--tertiary-text);
+}
+
+.header-text .thaw-text {
+  color: var(--primary-text);
+}
+
 .hover-effect {
   transform: scale3d(1, 1, 1);
   transition: transform 0.2s ease;
@@ -83,19 +108,23 @@ button {
   transform: scale3d(1.1, 1.1, 1.1);
 }
 
+.inner-container {
+  width: 80vw;
+}
+
 .last-update {
-  color: lightsteelblue;
+  color: var(--tertiary-text);
   font-size: 0.65rem;
 }
 
 .link {
   font-size: 1.2rem;
-  color: orange;
+  color: var(--primary-text);
 }
 
 .project-name {
-  background-color: dimgray;
-  color: orange;
+  background-color: var(--quaternary-text);
+  color: var(--primary-text);
   font-size: 1rem;
   height: 2rem;
   padding-top: 0.3rem;
@@ -104,7 +133,7 @@ button {
 }
 
 .project-description {
-  color: lightgray;
+  color: var(--primary-text);
   font-size: 1rem;
   height: 10rem;
   text-align: center;
@@ -115,11 +144,11 @@ button {
   flex-wrap: wrap;
   margin-bottom: 2rem;
   margin-top: 2rem;
-  width: 80vw;
 }
 
 .selfie {
   border-radius: 1rem;
+  margin-bottom: 1rem;
   max-height: 20rem;
   max-width: 10rem;
 }
@@ -130,13 +159,13 @@ button {
 }
 
 .thaw-drawer-body {
-  background-color: black;
+  background-color: var(--quinary-text);
 }
 
 .thaw-button--icon {
-  color: orange;
+  color: var(--primary-text);
 }
 
 .thaw-label {
-  color: orange;
+  color: var(--primary-text);
 }

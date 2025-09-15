@@ -46,7 +46,7 @@ pub fn Projects() -> impl IntoView {
     view! {
         <Flex
             align=FlexAlign::FlexStart
-            class="projects-container"
+            class="projects-container inner-container"
             gap=FlexGap::Size(40)
             justify=FlexJustify::SpaceAround
         >
