@@ -85,6 +85,10 @@ button {
   min-height: 100vh;
 }
 
+.font-weight {
+  font-weight: 600;
+}
+
 .footer {
   @extend .fade-in;
   color: var(--tertiary-text);
@@ -107,6 +111,7 @@ button {
 }
 
 .header-text {
+  @extend .font-weight;
   color: var(--tertiary-text);
 }
 
@@ -134,6 +139,7 @@ button {
 }
 
 .last-update {
+  @extend .font-weight;
   color: var(--tertiary-text);
   font-size: 0.65rem;
 }
