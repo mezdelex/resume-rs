@@ -72,7 +72,13 @@ button {
 
 .commit-message {
   @extend .text-center;
-  max-width: 80vw;
+  max-width: 40vw;
+}
+
+@media (max-width: 768px) {
+  .commit-message {
+    max-width: 80vw;
+  }
 }
 
 .container {
@@ -187,9 +193,13 @@ button {
   animation: fadeIn 1s ease-out forwards;
 }
 
+.social {
+  margin-top: 0.3rem;
+}
+
 .social a {
   @extend .hover-effect;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .text-center {

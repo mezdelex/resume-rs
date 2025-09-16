@@ -3,7 +3,7 @@ use crate::{
     services::projects_service::ProjectsService,
 };
 use chrono::{DateTime, Duration, Local, Utc};
-use icondata::{AiGithubFilled, AiLinkOutlined, MdiUpdate};
+use icondata::{BsCloudArrowUpFill, BsGithub, BsLink};
 use leptos::prelude::{component, use_context, view, Effect, For, Get, IntoView, Show};
 use leptos_icons::Icon;
 use leptos_router::components::A;
@@ -68,10 +68,13 @@ pub fn Projects() -> impl IntoView {
                             <Card>
                                 <Flex vertical=true>
                                     <CardHeader>
-                                        <Flex class="last-update" gap=FlexGap::Size(2)>
-                                            Last update
-                                            <Icon icon=MdiUpdate />
-                                            :
+                                        <Flex
+                                            class="last-update"
+                                            align=FlexAlign::Center
+                                            gap=FlexGap::Size(3)
+                                        >
+                                            Last update:
+                                            <Icon icon=BsCloudArrowUpFill />
                                             {get_last_update(project.pushed_at)}
                                         </Flex>
                                     </CardHeader>
@@ -88,24 +91,24 @@ pub fn Projects() -> impl IntoView {
                                     <Text class="project-description">{project.description}</Text>
                                     <CardFooter>
                                         <Flex class="card-footer" justify=FlexJustify::SpaceAround>
-                                            <A href=project.repo target="_">
+                                            <A href=project.repo target="_blank">
                                                 <Flex
                                                     class="link"
-                                                    align=FlexAlign::Center
+                                                    align=FlexAlign::FlexEnd
                                                     gap=FlexGap::Small
                                                 >
-                                                    <Icon icon=AiGithubFilled />
+                                                    <Icon icon=BsGithub />
                                                     Repo
                                                 </Flex>
                                             </A>
-                                            <A href=project.app target="_">
+                                            <A href=project.app target="_blank">
                                                 <Flex
                                                     class="link"
-                                                    align=FlexAlign::Center
+                                                    align=FlexAlign::FlexEnd
                                                     gap=FlexGap::Small
                                                 >
-                                                    <Icon icon=AiLinkOutlined />
-                                                    App
+                                                    <Icon icon=BsLink />
+                                                    Link
                                                 </Flex>
                                             </A>
                                         </Flex>

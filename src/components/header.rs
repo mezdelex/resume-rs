@@ -1,7 +1,7 @@
 use crate::{
     contexts::repository_context::RepositoryContext, services::github_service::GithubService,
 };
-use icondata::{AiGithubFilled, AiLinkedinFilled, AiRedditCircleFilled};
+use icondata::{BsGithub, BsLinkedin, BsReddit};
 use leptos::{
     prelude::{component, use_context, view, ClassAttribute, Effect, Get, IntoView, Set, Show},
     reactive::spawn_local,
@@ -59,7 +59,7 @@ pub fn Header() -> impl IntoView {
                         Last activity: <Text>{repository_context.date}</Text>
                     </Text>
                     <Text class="header-text">
-                        Commit: <A href=repository_context.link target="_">
+                        Commit: <A href=repository_context.link target="_blank">
                             Link
                         </A>
                     </Text>
@@ -69,14 +69,14 @@ pub fn Header() -> impl IntoView {
                 </Text>
             </Show>
             <Flex class="social" gap=FlexGap::Small>
-                <A href="https://linkedin.com/in/mezdelex" target="_">
-                    <Icon icon=AiLinkedinFilled />
+                <A href="https://github.com/mezdelex" target="_blank">
+                    <Icon icon=BsGithub />
                 </A>
-                <A href="https://github.com/mezdelex" target="_">
-                    <Icon icon=AiGithubFilled />
+                <A href="https://linkedin.com/in/mezdelex" target="_blank">
+                    <Icon icon=BsLinkedin />
                 </A>
-                <A href="https://reddit.com/u/mezdelex" target="_">
-                    <Icon icon=AiRedditCircleFilled />
+                <A href="https://reddit.com/u/mezdelex" target="_blank">
+                    <Icon icon=BsReddit />
                 </A>
             </Flex>
         </Flex>
