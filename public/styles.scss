@@ -1,18 +1,12 @@
-/* --------------------- Open Props --------------------------- */
-
-/* the props */
 @import "https://unpkg.com/open-props";
-
-/* optional imports that use the props */
-@import "https://unpkg.com/open-props/normalize.min.css";
 @import "https://unpkg.com/open-props/buttons.min.css";
+@import "https://unpkg.com/open-props/normalize.min.css";
 
-/* ------------------------------------------------------------ */
 :root {
   --primary-text: orange;
   --secondary-text: darkorange;
   --tertiary-text: cadetblue;
-  --quaternary-text: dimgray;
+  --quaternary-text: darkslategrey;
   --quinary-text: black;
 }
 
@@ -21,20 +15,13 @@ a {
   text-decoration: none;
 }
 
-a:hover,
-.link:hover {
+a:hover {
   color: var(--secondary-text);
 }
 
 body {
+  @extend .text-center;
   font-family: sans-serif;
-  text-align: center;
-}
-
-img {
-  height: 100%;
-  object-fit: fill;
-  width: 100%;
 }
 
 h1,
@@ -43,9 +30,15 @@ h3,
 h4,
 h5,
 h6 {
+  @extend .text-center;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+}
+
+img {
+  @extend .full-width;
+  height: 100%;
+  object-fit: fill;
 }
 
 p,
@@ -58,9 +51,26 @@ button {
   justify-content: space-evenly;
 }
 
+.card-container {
+  height: 65vh;
+}
+
+.card-footer {
+  @extend .full-width;
+}
+
+.card-footer .link {
+  @extend .hover-effect;
+}
+
 .card-preview {
   height: 15rem;
   overflow: hidden;
+}
+
+.commit-message {
+  @extend .text-center;
+  max-width: 80vw;
 }
 
 .container {
@@ -73,22 +83,19 @@ button {
   min-height: 100vh;
 }
 
-.card-container {
-  height: 65vh;
+.footer {
+  @extend .fade-in;
+  color: var(--tertiary-text);
+  margin-bottom: 2rem;
 }
 
-.card-footer {
+.full-width {
   width: 100%;
 }
 
-.commit-message {
-  max-width: 20rem;
-  text-align: center;
-}
-
-.footer {
-  margin-bottom: 2rem;
-  color: var(--tertiary-text);
+.header {
+  @extend .fade-in;
+  margin-top: 2rem;
 }
 
 .header-text {
@@ -118,29 +125,32 @@ button {
 }
 
 .link {
-  font-size: 1.2rem;
   color: var(--primary-text);
+  font-size: 1.2rem;
+}
+
+.link:hover {
+  color: var(--secondary-text);
 }
 
 .project-name {
+  @extend .text-center, .full-width;
   background-color: var(--quaternary-text);
   color: var(--primary-text);
   font-size: 1rem;
   height: 2rem;
   padding-top: 0.3rem;
-  text-align: center;
-  width: 100%;
 }
 
 .project-description {
+  @extend .text-center, .full-width;
   color: var(--primary-text);
   font-size: 1rem;
   height: 10rem;
-  text-align: center;
-  width: 100%;
 }
 
 .projects-container {
+  @extend .fade-in;
   flex-wrap: wrap;
   margin-bottom: 2rem;
   margin-top: 2rem;
@@ -148,9 +158,22 @@ button {
 
 .selfie {
   border-radius: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.2rem;
   max-height: 20rem;
   max-width: 10rem;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.social a {
+  @extend .hover-effect;
+  font-size: 2.5rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .thaw-card {
@@ -168,4 +191,24 @@ button {
 
 .thaw-label {
   color: var(--primary-text);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes thaw-skeleton-item {
+  from {
+    background-position-x: 115%;
+  }
+
+  to {
+    background-position-x: 0%;
+  }
 }
