@@ -7,7 +7,7 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
             id: String::from("resume-rs"),
             pushed_at: String::from(""),
             name: String::from("Resume RS"),
-            image: String::from("./images/leptos.png"),
+            image: String::from("./images/resume_rs.jpg"),
             repo: String::from("https://github.com/mezdelex/resume-rs"),
             app: String::from("https://mezdelex.com"),
             description: String::from("Current active portfolio app to show my personal projects, setup, etc. Developed using Rust (btw), and the Leptos WASM framework in CSR trunk mode, Thaw UI library, and a wide variety of crates like Serde, Tokio, Reqwest or Chrono. The deployment has been done using GitHub's CD pipeline against Netlify and hosted in a dedicated domain. Coded with Neovim (btw)."),
