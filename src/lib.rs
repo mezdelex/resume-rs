@@ -6,7 +6,7 @@ mod pages;
 mod services;
 use crate::{
     contexts::{project_context::ProjectContext, repository_context::RepositoryContext},
-    pages::{not_found::NotFound, projects_view::ProjectsView, timeline_view::TimelineView},
+    pages::{not_found::NotFound, projects_view::ProjectsView},
 };
 use leptos::prelude::*;
 use leptos_meta::*;
@@ -28,7 +28,6 @@ pub fn App() -> impl IntoView {
             <Router>
                 <Routes fallback=NotFound>
                     <Route path=path!("/") view=ProjectsView />
-                    <Route path=path!("/timeline") view=TimelineView />
                 </Routes>
             </Router>
         </ConfigProvider>
