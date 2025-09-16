@@ -9,8 +9,8 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
             name: String::from("Resume RS"),
             image: String::from("./images/leptos.png"),
             repo: String::from("https://github.com/mezdelex/resume-rs"),
-            app: String::from("https://github.com/leptos-rs/leptos"),
-            description: String::from("A work in progress replica of the Vue 3 resume, developed using Rust (btw), and the Leptos WASM framework in CSR trunk mode, Thaw UI library, Serde, Tokio, Reqwest, Chrono, etc. Coded with Neovim (btw)."),
+            app: String::from("https://mezdelex.com"),
+            description: String::from("Current active portfolio app to show my personal projects, setup, etc. Developed using Rust (btw), and the Leptos WASM framework in CSR trunk mode, Thaw UI library, and a wide variety of crates like Serde, Tokio, Reqwest or Chrono. The deployment has been done using GitHub's CD pipeline against Netlify and hosted in a dedicated domain. Coded with Neovim (btw)."),
         },
         Project {
             id: String::from("unpack"),
@@ -28,7 +28,7 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
             image: String::from("./images/clean9.png"),
             repo: String::from("https://github.com/mezdelex/CleanTemplate8"),
             app: String::from("https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures"),
-            description: String::from(".NET9 Clean Architecture template using DDD, Event Sourcing with MediatR library, Pub/Sub pattern with MassTransit library and RabbitMQ, Entity Framework Core's Identity, Redis cache, CQRS pattern, Specification pattern, Minimal API, Docker for SQLServer, RabbitMQ and WebApi containerization, FluentValidations, Unit of Work pattern, Serilog logging, CSharpier pre-commit hooks with Husky, Testing with xUnit and Moq, FluentAssertions, etc. Coded with Neovim"),
+            description: String::from(".NET9 Clean Architecture template using DDD, Event Sourcing with MediatR library, Pub/Sub pattern with MassTransit library and RabbitMQ, Entity Framework Core's Identity, Redis cache, CQRS pattern, Specification pattern, Minimal API, Docker for SQLServer, RabbitMQ and WebApi containerization, FluentValidations, Unit of Work pattern, Serilog logging, CSharpier pre-commit hooks, Testing with xUnit and Moq, FluentAssertions, etc. Coded with Neovim"),
         },
         Project{
             id: String::from("AoC2023"),
@@ -135,8 +135,8 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
             name: String::from("Resume"),
             image: String::from("./images/resume.png"),
             repo: String::from("https://github.com/mezdelex/Resume"),
-            app: String::from("https://www.mezdelex.com"),
-            description: String::from("Vue 3 app to serve as an online portfolio to show my development experience. Used Vue 3 Composition API with Typescript. The deployment has been done using GitHub's CD pipeline against Netlify and hosted in a dedicated domain. Coded with Neovim."),
+            app: String::from("https://mezdelex.netlify.app"),
+            description: String::from("My previous Vue 3 app to serve as an online portfolio to show my development experience. Used Vue 3 Composition API with Typescript. The deployment has been done using GitHub's CD pipeline against Netlify and hosted in the default domain. Coded with Neovim."),
         },
         Project{
             id: String::from("Concesionario-SPA"),

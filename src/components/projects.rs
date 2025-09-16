@@ -14,7 +14,13 @@ use thaw::{
 pub fn get_last_update(pushed_at: String) -> String {
     let parsed: DateTime<Utc> = match pushed_at.parse() {
         Ok(dt) => dt,
-        Err(_) => return "Invalid date".to_string(),
+        Err(_) => {
+            return if pushed_at.is_empty() {
+                "Couldn't fetch date".to_string()
+            } else {
+                pushed_at
+            }
+        }
     };
 
     let duration = Utc::now() - parsed;
@@ -60,25 +66,25 @@ pub fn Projects() -> impl IntoView {
                     children=move |project| {
                         view! {
                             <Card>
+                                <Flex vertical=true>
+                                    <CardHeader>
+                                        <Flex class="last-update" gap=FlexGap::Size(2)>
+                                            Last update
+                                            <Icon icon=MdiUpdate />
+                                            :
+                                            {get_last_update(project.pushed_at)}
+                                        </Flex>
+                                    </CardHeader>
+                                    <CardPreview class="card-preview">
+                                        <img src=project.image />
+                                    </CardPreview>
+                                    <Text class="project-name">{project.name}</Text>
+                                </Flex>
                                 <Flex
-                                    class="card-container"
+                                    class="card-lower"
                                     justify=FlexJustify::SpaceBetween
                                     vertical=true
                                 >
-                                    <Flex vertical=true>
-                                        <CardHeader>
-                                            <Flex class="last-update" gap=FlexGap::Size(2)>
-                                                Last update
-                                                <Icon icon=MdiUpdate />
-                                                :
-                                                {get_last_update(project.pushed_at)}
-                                            </Flex>
-                                        </CardHeader>
-                                        <CardPreview class="card-preview">
-                                            <img src=project.image />
-                                        </CardPreview>
-                                    </Flex>
-                                    <Text class="project-name">{project.name}</Text>
                                     <Text class="project-description">{project.description}</Text>
                                     <CardFooter>
                                         <Flex class="card-footer" justify=FlexJustify::SpaceAround>

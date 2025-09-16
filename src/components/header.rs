@@ -37,12 +37,15 @@ pub fn Header() -> impl IntoView {
     view! {
         <Flex class="header" align=FlexAlign::Center gap=thaw::FlexGap::Medium vertical=true>
             <img class="selfie" src="./images/alejandro.png" />
+            <Flex gap=FlexGap::Size(1) align=FlexAlign::Center vertical=true>
+                <Text class="header-name">Alejandro Conde Gómez</Text>
+            </Flex>
             <Show
-                when=move || { repository_context.finished.get() }
+                when=move || { !repository_context.link.get().is_empty() }
                 fallback=|| {
                     view! {
                         <Skeleton class="full-width">
-                            <Flex gap=FlexGap::Small vertical=true>
+                            <Flex gap=FlexGap::Medium vertical=true>
                                 <SkeletonItem />
                                 <SkeletonItem />
                                 <SkeletonItem />
@@ -64,18 +67,18 @@ pub fn Header() -> impl IntoView {
                 <Text class="commit-message header-text">
                     Message: <Text>{repository_context.message}</Text>
                 </Text>
-                <Flex class="social" gap=FlexGap::Small>
-                    <A href="https://linkedin.com/in/mezdelex" target="_">
-                        <Icon icon=AiLinkedinFilled />
-                    </A>
-                    <A href="https://github.com/mezdelex" target="_">
-                        <Icon icon=AiGithubFilled />
-                    </A>
-                    <A href="https://reddit.com/u/mezdelex" target="_">
-                        <Icon icon=AiRedditCircleFilled />
-                    </A>
-                </Flex>
             </Show>
+            <Flex class="social" gap=FlexGap::Small>
+                <A href="https://linkedin.com/in/mezdelex" target="_">
+                    <Icon icon=AiLinkedinFilled />
+                </A>
+                <A href="https://github.com/mezdelex" target="_">
+                    <Icon icon=AiGithubFilled />
+                </A>
+                <A href="https://reddit.com/u/mezdelex" target="_">
+                    <Icon icon=AiRedditCircleFilled />
+                </A>
+            </Flex>
         </Flex>
     }
 }

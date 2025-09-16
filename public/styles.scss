@@ -51,16 +51,18 @@ button {
   justify-content: space-evenly;
 }
 
-.card-container {
-  height: 65vh;
-}
-
 .card-footer {
   @extend .full-width;
+  margin-bottom: 1rem;
 }
 
 .card-footer .link {
   @extend .hover-effect;
+}
+
+.card-lower {
+  height: 100%;
+  margin-top: 0.5rem;
 }
 
 .card-preview {
@@ -98,6 +100,12 @@ button {
   margin-top: 2rem;
 }
 
+.header-name {
+  color: var(--primary-text);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .header-text {
   color: var(--tertiary-text);
 }
@@ -117,6 +125,12 @@ button {
 
 .inner-container {
   width: 80vw;
+}
+
+@media (max-width: 768px) {
+  .inner-container {
+    width: 100vw;
+  }
 }
 
 .last-update {
@@ -139,6 +153,7 @@ button {
   color: var(--primary-text);
   font-size: 1rem;
   height: 2rem;
+  margin-top: 1rem;
   padding-top: 0.3rem;
 }
 
@@ -146,7 +161,6 @@ button {
   @extend .text-center, .full-width;
   color: var(--primary-text);
   font-size: 1rem;
-  height: 10rem;
 }
 
 .projects-container {
@@ -179,6 +193,12 @@ button {
 .thaw-card {
   height: 70vh;
   width: 30rem;
+}
+
+@media (max-width: 768px) {
+  .thaw-card {
+    height: 90vh;
+  }
 }
 
 .thaw-drawer-body {
