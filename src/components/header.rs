@@ -1,7 +1,7 @@
 use crate::{
     contexts::repository_context::RepositoryContext, services::github_service::GithubService,
 };
-use icondata::{BsGithub, BsLinkedin, BsReddit};
+use icondata::{BiLinkExternalRegular, BsGithub, BsLinkedin, BsReddit};
 use leptos::{
     prelude::{component, use_context, view, ClassAttribute, Effect, Get, IntoView, Set, Show},
     reactive::spawn_local,
@@ -58,11 +58,12 @@ pub fn Header() -> impl IntoView {
                     <Text class="header-text">
                         Last activity: <Text>{repository_context.date}</Text>
                     </Text>
-                    <Text class="header-text">
-                        Commit: <A href=repository_context.link target="_blank">
-                            Link
+                    <Flex align=FlexAlign::Center gap=FlexGap::Size(3)>
+                        <Text class="header-text">Commit:</Text>
+                        <A href=repository_context.link target="_blank">
+                            <Icon icon=BiLinkExternalRegular />
                         </A>
-                    </Text>
+                    </Flex>
                 </Flex>
                 <Text class="commit-message header-text">
                     Message: <Text>{repository_context.message}</Text>
