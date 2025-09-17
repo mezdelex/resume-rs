@@ -122,3 +122,51 @@ pub fn Projects() -> impl IntoView {
         </Flex>
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::get_last_update;
+    use chrono::{Duration, Utc};
+
+    #[test]
+    fn test_get_last_update_minutes_ago() {
+        let now = Utc::now();
+        let five_minutes_ago = now - Duration::minutes(5);
+        let result = get_last_update(five_minutes_ago.to_rfc3339());
+        assert_eq!(result, "5 minute(s) ago");
+    }
+
+    #[test]
+    fn test_get_last_update_hours_ago() {
+        let now = Utc::now();
+        let two_hours_ago = now - Duration::hours(2);
+        let result = get_last_update(two_hours_ago.to_rfc3339());
+        assert_eq!(result, "2 hour(s) ago");
+    }
+
+    #[test]
+    fn test_get_last_update_days_ago() {
+        let now = Utc::now();
+        let two_days_ago = now - Duration::days(2);
+        let result = get_last_update(two_days_ago.to_rfc3339());
+        assert_eq!(
+            result,
+            two_days_ago
+                .with_timezone(&chrono::Local)
+                .format("%Y-%m-%d")
+                .to_string()
+        );
+    }
+
+    #[test]
+    fn test_get_last_update_empty_string() {
+        let result = get_last_update("".to_string());
+        assert_eq!(result, "Couldn't fetch date");
+    }
+
+    #[test]
+    fn test_get_last_update_invalid_string() {
+        let result = get_last_update("invalid date".to_string());
+        assert_eq!(result, "invalid date");
+    }
+}
