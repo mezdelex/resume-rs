@@ -8,7 +8,8 @@ use leptos::prelude::{component, use_context, view, Effect, For, Get, IntoView, 
 use leptos_icons::Icon;
 use leptos_router::components::A;
 use thaw::{
-    Card, CardFooter, CardHeader, CardPreview, Flex, FlexAlign, FlexGap, FlexJustify, Spinner, Text,
+    Card, CardFooter, CardHeader, CardPreview, Flex, FlexAlign, FlexGap, FlexJustify, Spinner,
+    SpinnerSize, Text,
 };
 
 pub fn get_last_update(pushed_at: String) -> String {
@@ -58,7 +59,7 @@ pub fn Projects() -> impl IntoView {
         >
             <Show
                 when=move || { repository_context.finished.get() }
-                fallback=|| view! { <Spinner /> }
+                fallback=|| view! { <Spinner class="spinner" size=SpinnerSize::Huge /> }
             >
                 <For
                     each=projects

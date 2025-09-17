@@ -48,7 +48,6 @@ pub fn Header() -> impl IntoView {
                             <Flex gap=FlexGap::Medium vertical=true>
                                 <SkeletonItem />
                                 <SkeletonItem />
-                                <SkeletonItem />
                             </Flex>
                         </Skeleton>
                     }

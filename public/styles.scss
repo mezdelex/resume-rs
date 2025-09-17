@@ -182,6 +182,10 @@ button {
   margin-top: 2rem;
 }
 
+.projects-height {
+  height: 40rem;
+}
+
 .selfie {
   border-radius: 1rem;
   margin-bottom: 0.2rem;
@@ -202,12 +206,16 @@ button {
   font-size: 2rem;
 }
 
+.spinner {
+  @extend .projects-height;
+}
+
 .text-center {
   text-align: center;
 }
 
 .thaw-card {
-  height: 40rem;
+  @extend .projects-height;
   width: 30rem;
 }
 
