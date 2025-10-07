@@ -9,8 +9,8 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
             name: String::from("Resume RS"),
             image: String::from("./images/resume_rs.jpg"),
             repo: String::from("https://github.com/mezdelex/resume-rs"),
-            app: String::from("https://mezdelex.com"),
-            description: String::from("Current active portfolio app to show my personal projects, setup, etc. Developed using Rust (btw), and the Leptos WASM framework in CSR trunk mode, Thaw UI library, and a wide variety of crates like Serde, Tokio, Reqwest or Chrono. The deployment has been done using GitHub's CD pipeline against Netlify and hosted in a dedicated domain. Coded with Neovim (btw)."),
+            app: String::from("https://mezdelex-resume.netlify.app"),
+            description: String::from("Portfolio app replica of the main resume to show my personal projects, setup, etc. using Rust and the Leptos WASM framework in CSR trunk mode, Thaw UI library, and a wide variety of crates like Serde, Tokio, Reqwest or Chrono. The deployment has been done using GitHub's CD pipeline against Netlify and hosted in the default domain. Coded with Neovim."),
         },
         Project {
             id: String::from("unpack"),
@@ -135,8 +135,8 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
             name: String::from("Resume"),
             image: String::from("./images/resume.png"),
             repo: String::from("https://github.com/mezdelex/Resume"),
-            app: String::from("https://mezdelex.netlify.app"),
-            description: String::from("My previous Vue 3 app to serve as an online portfolio to show my development experience. Used Vue 3 Composition API with Typescript. The deployment has been done using GitHub's CD pipeline against Netlify and hosted in the default domain. Coded with Neovim."),
+            app: String::from("https://mezdelex.com"),
+            description: String::from("Vue 3 app to serve as an online portfolio to show my development experience. Used Vue 3 Composition API with Typescript. The deployment has been done using GitHub's CD pipeline against Netlify and hosted in a dedicated domain. Coded with Neovim."),
         },
         Project{
             id: String::from("Concesionario-SPA"),
